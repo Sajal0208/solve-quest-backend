@@ -1,6 +1,7 @@
+require('dotenv').config()
 const express = require('express');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const connectDB = require('./config/db')
 const helmet = require('helmet')
 const cors = require("cors");
@@ -29,5 +30,3 @@ app.use('/problem', require('./routes/problemRoutes'))
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
-
-// password for MONGODB: zzmR82dauQ0BF84v
