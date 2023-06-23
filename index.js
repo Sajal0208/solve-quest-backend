@@ -25,6 +25,11 @@ connectDB()
 // Routes
 app.use('/user', require('./routes/userRoutes'))
 app.use('/problem', require('./routes/problemRoutes'))
+app.all('*', (req, res) => {
+    res.status(404).json({
+        message: 'Invalid URL'
+    })
+})
 
 // Start the server
 app.listen(port, () => {
